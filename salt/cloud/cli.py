@@ -162,7 +162,7 @@ class SaltCloud(salt.utils.parsers.SaltCloudParser):
         elif self.options.list_images is not None:
             # pylint: disable=broad-except
             try:
-                ret = mapper.image_list(self.options.list_images)
+                ret = mapper.image_list(self.options.list_images, location=self.options.location)
             except (SaltCloudException, Exception,) as exc:
                 msg = "There was an error listing images: {0}"
                 self.handle_exception(msg, exc)
